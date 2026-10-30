@@ -1,24 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="5 0 190 190" width="64" height="64">
-<defs><mask id="m"><rect x="0" y="0" width="200" height="200" fill="white"/>
-<polygon points="51,22 69,22 103,183 96,183" fill="black"/>
-<line x1="149" y1="22" x2="99" y2="183" stroke="black" stroke-width="6"/>
-<path d="M113.67,91.25 A30,30 0 1,0 113.67,132.75 A26,26 0 1,1 113.67,91.25 Z" fill="black" stroke="black" stroke-width="5" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="5 0 190 190" width="64" height="64">
+<defs>
+<path id="ring" d="M54,100 A46,72 0 1,0 146,100 A46,72 0 1,0 54,100 Z M61,100 A39,68.5 0 1,1 139,100 A39,68.5 0 1,1 61,100 Z"/>
+<path id="cs" d="M113.67,91.25 A30,30 0 1,0 113.67,132.75 A26,26 0 1,1 113.67,91.25 Z"/>
+<clipPath id="bot"><rect x="78" y="150" width="44" height="40"/></clipPath>
+<mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect x="0" y="0" width="200" height="200" fill="#fff"/>
+<polygon points="51,22 69,22 103,183 96,183" fill="#000"/>
+<line x1="149" y1="22" x2="99" y2="183" stroke="#000" stroke-width="6"/>
+<use href="#cs" xlink:href="#cs" fill="#000" stroke="#000" stroke-width="5" stroke-linejoin="round"/>
 </mask>
-<mask id="m2"><rect x="0" y="0" width="200" height="200" fill="white"/>
-<path d="M84,167.5 A46,72 0 0,0 116,167.5" fill="none" stroke="black" stroke-width="7"/>
-<path d="M113.67,91.25 A30,30 0 1,0 113.67,132.75 A26,26 0 1,1 113.67,91.25 Z" fill="black" stroke="black" stroke-width="5" stroke-linejoin="round"/>
-</mask></defs>
+<mask id="m2" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect x="0" y="0" width="200" height="200" fill="#fff"/>
+<g clip-path="url(#bot)"><use href="#ring" xlink:href="#ring" fill="#000" fill-rule="evenodd" stroke="#000" stroke-width="5"/></g>
+<use href="#cs" xlink:href="#cs" fill="#000" stroke="#000" stroke-width="5" stroke-linejoin="round"/>
+</mask>
+</defs>
 <rect x="5" y="0" width="190" height="190" rx="36" fill="#141221"/>
 <g fill="#EFE6D6">
-<path mask="url(#m)" d="M54,100 A46,72 0 1,0 146,100 A46,72 0 1,0 54,100 Z M61,100 A39,70 0 1,1 139,100 A39,70 0 1,1 61,100 Z" fill-rule="evenodd"/>
+<use href="#ring" xlink:href="#ring" fill-rule="evenodd" mask="url(#m)"/>
 <g mask="url(#m2)">
 <polygon points="54,22 66,22 101,182 97,182"/>
 <line x1="148" y1="22" x2="99" y2="182" stroke="#EFE6D6" stroke-width="1.6"/>
 <line x1="46" y1="22" x2="74" y2="22" stroke="#EFE6D6" stroke-width="1.6"/>
 <line x1="138" y1="22" x2="158" y2="22" stroke="#EFE6D6" stroke-width="1.6"/>
 </g>
-<path d="M84,167.5 A46,72 0 0,0 116,167.5" fill="none" stroke="#EFE6D6" stroke-width="2.2"/>
-<path d="M113.67,91.25 A30,30 0 1,0 113.67,132.75 A26,26 0 1,1 113.67,91.25 Z"/>
+<g clip-path="url(#bot)"><use href="#ring" xlink:href="#ring" fill-rule="evenodd"/></g>
+<use href="#cs" xlink:href="#cs"/>
 <circle cx="113.67" cy="132.75" r="3.6"/>
 </g>
 <path d="M100,4 L101.6,10.4 L108,12 L101.6,13.6 L100,20 L98.4,13.6 L92,12 L98.4,10.4 Z" fill="#C9B8DE"/>
