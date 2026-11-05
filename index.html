@@ -6,8 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Viola C. Oberhoffer – Author and Voice Actress</title>
 <meta name="description" content="Viola C. Oberhoffer – romantasy author and voice actress.">
-<link rel="alternate" hreflang="en" href="https://violacoberhoffer.com/">
-<link rel="alternate" hreflang="de" href="https://violacoberhoffer.com/de/">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <style>
 @font-face{font-family:'Cormorant Garamond';src:url(fonts/cormorant-garamond.woff) format('woff');font-weight:300 700;font-style:normal;font-display:swap}
@@ -68,21 +66,29 @@ img{max-width:100%}
  #books a[aria-label]:hover{animation:wiggle .7s ease}
  @keyframes wiggle{0%,100%{rotate:0deg}25%{rotate:-6deg}50%{rotate:5deg}75%{rotate:-2deg}}
 }
+html,body{overflow-x:clip}
+.sky{position:absolute;top:0;left:50%;width:100vw;margin-left:-50vw;height:100%;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+@media (prefers-reduced-motion: no-preference){
+ .mono{animation:mono-in 2.2s cubic-bezier(.2,.7,.2,1) both,mono-glow 6s ease-in-out 2.2s infinite}
+ @keyframes mono-in{0%{opacity:0;transform:translateY(10px) scale(.92);filter:drop-shadow(0 0 0 rgba(243,217,166,0))}60%{opacity:1;filter:drop-shadow(0 0 18px rgba(243,217,166,.75))}100%{opacity:1;transform:none;filter:drop-shadow(0 0 6px rgba(201,184,222,.35))}}
+ @keyframes mono-glow{0%,100%{filter:drop-shadow(0 0 6px rgba(201,184,222,.35))}50%{filter:drop-shadow(0 0 14px rgba(243,217,166,.55))}}
+ .shimmer.name{animation:name-in 2.4s cubic-bezier(.2,.7,.2,1) .5s both,shimmer 2.6s ease-in-out 2.4s 1 forwards}
+ @keyframes name-in{0%{opacity:0;transform:scale(1.12);filter:blur(12px)}100%{opacity:1;transform:none;filter:blur(0)}}
+ .topnav{animation:nav-in 1.4s ease 1.9s both}
+ @keyframes nav-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
 </style>
 </head>
 <body>
 <div style="font-family: 'Manrope', system-ui, sans-serif; color: #EFE6D6; background: #141221; width: 100%; min-height: 100vh">
 
-<header style="position: relative; max-width: 1240px; margin: 0 auto; padding: 40px 32px 0; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
-<div role="group" aria-label="Language" style="position: absolute; top: 24px; right: 32px; display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.16em">
-<a href="#top" aria-current="true" style="display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; text-decoration: none; color: #EFE6D6; border-bottom: 1px solid #C9B8DE">EN</a>
-<a href="de/" lang="de" style="display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; text-decoration: none; color: #9C8FB3">DE</a>
-</div>
-<a href="#top" aria-label="Viola C. Oberhoffer, home" style="display: flex; flex-direction: column; align-items: center; gap: 20px; text-decoration: none; color: #EFE6D6">
-<img src="images/monogram.svg" alt="" style="display: block; width: 100px; height: 160px">
-<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(30px, 5.2vw, 68px); font-weight: 300; line-height: 1; letter-spacing: 0.14em; text-transform: uppercase; padding-left: 0.14em" class="shimmer">Viola C. Oberhoffer</span>
+<header class="hdr" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 40px 32px 0; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
+<canvas class="sky" aria-hidden="true"></canvas>
+<a href="#top" aria-label="Viola C. Oberhoffer, home" style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 20px; text-decoration: none; color: #EFE6D6">
+<img class="mono" src="images/monogram.svg" alt="" style="display: block; width: 100px; height: 160px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(30px, 5.2vw, 68px); font-weight: 300; line-height: 1; letter-spacing: 0.14em; text-transform: uppercase; padding-left: 0.14em" class="shimmer name">Viola C. Oberhoffer</span>
 </a>
-<nav aria-label="Main" style="width: 100%; box-sizing: border-box; border-top: 1px solid #3A3150; border-bottom: 1px solid #3A3150; padding: 18px 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; column-gap: 64px; row-gap: 12px; font-size: 15px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase">
+<nav aria-label="Main" class="topnav" style="position: relative; z-index: 1; width: 100%; box-sizing: border-box; border-top: 1px solid #3A3150; border-bottom: 1px solid #3A3150; padding: 18px 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; column-gap: 64px; row-gap: 12px; font-size: 15px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase">
 <a href="#top" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none"><svg width="10" height="10" viewBox="0 0 20 20" aria-hidden="true"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z" fill="#C9B8DE"></path></svg>Home</a>
 <a href="#books" style="text-decoration: none">Books</a>
 <a href="#voice" style="text-decoration: none">Voice</a>
@@ -361,6 +367,28 @@ img{max-width:100%}
     cx.globalCompositeOperation='source-over';if(run)raf=requestAnimationFrame(frame)}
   init();window.addEventListener('resize',function(){var w=W;size();if(Math.abs(w-W)>40)init()});
   if('IntersectionObserver' in window){new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!run){run=true;raf=requestAnimationFrame(frame)}else if(!v){run=false;cancelAnimationFrame(raf)}}).observe(sec)}else{run=true;frame()}
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var cv=document.querySelector('canvas.sky');if(!cv||!cv.getContext)return;var hdr=cv.parentElement;
+  var cx=cv.getContext('2d'),W,H,dpr=Math.min(window.devicePixelRatio||1,2),S=[],shoot=null,next=0,run=true,t0=performance.now();
+  function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+    S=[];var n=Math.round(W*H/9000);for(var i=0;i<n;i++)S.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()<.85?.5+Math.random()*.7:1.1+Math.random()*.8,p:Math.random()*6.28,s:.6+Math.random()*1.6,warm:Math.random()<.25})}
+  function frame(now){var t=(now-t0)/1000;cx.clearRect(0,0,W,H);
+    var fade=Math.min(1,t/2.5);
+    for(var i=0;i<S.length;i++){var s=S[i];var a=(.35+.65*(.5+.5*Math.sin(t*s.s+s.p)))*fade;
+      cx.fillStyle=s.warm?'rgba(243,217,166,'+a*.8+')':'rgba(220,208,240,'+a*.75+')';cx.beginPath();cx.arc(s.x,s.y,s.r,0,6.28);cx.fill();
+      if(s.r>1.1){cx.fillStyle='rgba(220,208,240,'+a*.12+')';cx.beginPath();cx.arc(s.x,s.y,s.r*4,0,6.28);cx.fill()}}
+    if(!shoot&&t>next){var fromLeft=Math.random()<.5;shoot={x:fromLeft?W*(.05+Math.random()*.3):W*(.65+Math.random()*.3),y:H*(.05+Math.random()*.25),vx:(fromLeft?1:-1)*(5+Math.random()*3),vy:1.6+Math.random()*1.2,life:0};next=t+7+Math.random()*8}
+    if(shoot){shoot.life++;shoot.x+=shoot.vx;shoot.y+=shoot.vy;var la=Math.max(0,1-shoot.life/70);
+      var g=cx.createLinearGradient(shoot.x,shoot.y,shoot.x-shoot.vx*14,shoot.y-shoot.vy*14);g.addColorStop(0,'rgba(255,240,210,'+la+')');g.addColorStop(1,'rgba(255,240,210,0)');
+      cx.strokeStyle=g;cx.lineWidth=1.4;cx.beginPath();cx.moveTo(shoot.x,shoot.y);cx.lineTo(shoot.x-shoot.vx*14,shoot.y-shoot.vy*14);cx.stroke();if(la<=0)shoot=null}
+    if(run)requestAnimationFrame(frame)}
+  size();next=3.5;window.addEventListener('resize',size);
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){var v=e[0].isIntersecting;if(v&&!run){run=true;requestAnimationFrame(frame)}else if(!v)run=false}).observe(hdr);
+  requestAnimationFrame(frame);
 })();
 </script>
 </body>
