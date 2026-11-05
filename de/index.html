@@ -53,6 +53,23 @@ img{max-width:100%}
  .quote-bg{animation:quote-breathe 24s ease-in-out infinite alternate;will-change:transform}
  @keyframes quote-breathe{0%{transform:scale(1)}100%{transform:scale(1.06)}}
 }
+@media (prefers-reduced-motion: no-preference){
+ .twinkle{transform-box:fill-box;transform-origin:center;animation:twinkle 4.5s ease-in-out infinite;animation-delay:var(--tw,0s)}
+ @keyframes twinkle{0%,100%{opacity:1;transform:scale(1)}45%{opacity:.35;transform:scale(.7)}55%{opacity:1;transform:scale(1.25);filter:drop-shadow(0 0 3px #F3D9A6)}}
+ .shimmer{background:linear-gradient(105deg,#EFE6D6 0%,#EFE6D6 42%,#F7DDA8 50%,#FFF7E6 52%,#EFE6D6 60%,#EFE6D6 100%);background-size:300% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 2.6s ease-in-out .5s 1 forwards}
+ @keyframes shimmer{to{background-position:0% 0}}
+}
+.embers{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+@media (hover:hover) and (prefers-reduced-motion: no-preference){
+ a[style*="border-radius: 999px"]:not([aria-label]),button{transition:transform .35s ease,box-shadow .35s ease,background-color .35s ease}
+ a[style*="border-radius: 999px"]:not([aria-label]):hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(201,184,222,.22),0 0 0 1px rgba(201,184,222,.35)}
+ article,#voice div:has(> audio){transition:transform .45s ease,box-shadow .45s ease,border-color .45s ease}
+ article:hover,#voice div:has(> audio):hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 28px rgba(201,184,222,.12);border-color:#6E6288!important}
+ #books img{transition:transform .6s ease,box-shadow .6s ease}
+ #books img:hover{transform:perspective(900px) rotateY(-5deg) rotateX(2deg) scale(1.02);box-shadow:0 36px 70px rgba(0,0,0,.55),0 0 40px rgba(240,160,90,.18)}
+ #books a[aria-label]:hover{animation:wiggle .7s ease}
+ @keyframes wiggle{0%,100%{rotate:0deg}25%{rotate:-6deg}50%{rotate:5deg}75%{rotate:-2deg}}
+}
 </style>
 </head>
 <body>
@@ -65,7 +82,7 @@ img{max-width:100%}
 </div>
 <a href="#top" aria-label="Viola C. Oberhoffer, Startseite" style="display: flex; flex-direction: column; align-items: center; gap: 20px; text-decoration: none; color: #EFE6D6">
 <img src="../images/monogram.svg" alt="" style="display: block; width: 100px; height: 160px">
-<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(30px, 5.2vw, 68px); font-weight: 300; line-height: 1; letter-spacing: 0.14em; text-transform: uppercase; padding-left: 0.14em">Viola C. Oberhoffer</span>
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(30px, 5.2vw, 68px); font-weight: 300; line-height: 1; letter-spacing: 0.14em; text-transform: uppercase; padding-left: 0.14em" class="shimmer">Viola C. Oberhoffer</span>
 </a>
 <nav aria-label="Hauptnavigation" style="width: 100%; box-sizing: border-box; border-top: 1px solid #3A3150; border-bottom: 1px solid #3A3150; padding: 18px 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; column-gap: 64px; row-gap: 12px; font-size: 15px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase">
 <a href="#top" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none"><svg width="10" height="10" viewBox="0 0 20 20" aria-hidden="true"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z" fill="#C9B8DE"></path></svg>Start</a>
@@ -106,6 +123,7 @@ img{max-width:100%}
 <section id="books" style="position: relative; overflow: hidden; background: #241A33">
 <div class="orn orn-l" style="opacity: 0.3"></div>
 <div class="orn orn-r" style="opacity: 0.3"></div>
+<canvas class="embers" aria-hidden="true"></canvas>
 <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 80px">
 <div style="flex: 0 1 380px; min-width: 0; display: flex; justify-content: center">
 <div style="position: relative; width: 100%; max-width: 340px">
@@ -321,6 +339,29 @@ img{max-width:100%}
   if(!('IntersectionObserver' in window)){items.forEach(function(el){el.classList.add('in')});return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
   items.forEach(function(el){io.observe(el)});
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  // twinkling stars
+  var stars=Array.prototype.filter.call(document.querySelectorAll('svg path'),function(p){var d=p.getAttribute('d')||'';return /^M[\d.]+,[\d.]+( L[\d.]+,[\d.]+){7} Z$/.test(d)});
+  stars.forEach(function(p,i){p.classList.add('twinkle');p.style.setProperty('--tw',(-(i*1.37)%4.5).toFixed(2)+'s')});
+  // embers in the books section
+  var sec=document.getElementById('books'),cv=sec&&sec.querySelector('canvas.embers');if(!cv||!cv.getContext)return;
+  var cx=cv.getContext('2d'),W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2),P=[],run=false,raf=0;
+  function size(){var r=sec.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+  function spawn(p,init){p.x=Math.random()*W;p.y=init?Math.random()*H:H+10;p.r=.8+Math.random()*2.2;p.vy=.25+Math.random()*.6;p.sw=Math.random()*Math.PI*2;p.sp=.006+Math.random()*.012;p.a=.35+Math.random()*.55;p.hue=Math.random()<.75?28+Math.random()*16:45;p.life=0;return p}
+  function init(){size();P=[];var n=W<700?22:46;for(var i=0;i<n;i++)P.push(spawn({},true))}
+  function frame(){cx.clearRect(0,0,W,H);cx.globalCompositeOperation='lighter';
+    for(var i=0;i<P.length;i++){var p=P[i];p.life++;p.y-=p.vy;p.sw+=p.sp;p.x+=Math.sin(p.sw)*.45;
+      var fade=Math.min(1,p.life/60)*Math.max(0,Math.min(1,p.y/(H*.35)));var fl=.75+Math.sin(p.life*.15+p.sw)*.25;
+      var g=cx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);g.addColorStop(0,'hsla('+p.hue+',95%,70%,'+(p.a*fade*fl)+')');g.addColorStop(.35,'hsla('+p.hue+',90%,55%,'+(p.a*fade*fl*.35)+')');g.addColorStop(1,'hsla('+p.hue+',90%,50%,0)');
+      cx.fillStyle=g;cx.beginPath();cx.arc(p.x,p.y,p.r*5,0,Math.PI*2);cx.fill();
+      if(p.y<-20||fade<=0&&p.life>60)spawn(p,false)}
+    cx.globalCompositeOperation='source-over';if(run)raf=requestAnimationFrame(frame)}
+  init();window.addEventListener('resize',function(){var w=W;size();if(Math.abs(w-W)>40)init()});
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!run){run=true;raf=requestAnimationFrame(frame)}else if(!v){run=false;cancelAnimationFrame(raf)}}).observe(sec)}else{run=true;frame()}
 })();
 </script>
 </body>
