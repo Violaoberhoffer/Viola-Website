@@ -44,9 +44,10 @@ img{max-width:100%}
  .js .rv.in{opacity:1;transform:none}
  .js .rv-soft{opacity:0;transition:opacity 1.6s ease;transition-delay:var(--d,0s)}
  .js .rv-soft.in{opacity:1}
- .orn{animation:orn-drift 16s ease-in-out infinite alternate;will-change:transform}
- .orn-r{animation-delay:-8s}
- @keyframes orn-drift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-18px,0) scale(1.05)}}
+ .orn{animation:orn-drift 11s ease-in-out infinite alternate;will-change:transform}
+ .orn-r{animation-name:orn-drift-r;animation-delay:-5s}
+ @keyframes orn-drift{0%{transform:translate3d(-10px,12px,0) scale(1) rotate(-1deg)}50%{transform:translate3d(14px,-22px,0) scale(1.07) rotate(0.6deg)}100%{transform:translate3d(-4px,-44px,0) scale(1.12) rotate(1.4deg)}}
+ @keyframes orn-drift-r{0%{transform:translate3d(10px,12px,0) scale(1) rotate(1deg)}50%{transform:translate3d(-14px,-22px,0) scale(1.07) rotate(-0.6deg)}100%{transform:translate3d(4px,-44px,0) scale(1.12) rotate(-1.4deg)}}
  .quote-bg{animation:quote-breathe 24s ease-in-out infinite alternate;will-change:transform}
  @keyframes quote-breathe{0%{transform:scale(1)}100%{transform:scale(1.06)}}
 }
@@ -101,8 +102,8 @@ img{max-width:100%}
 </section>
 
 <section id="books" style="position: relative; overflow: hidden; background: #241A33">
-<div class="orn orn-l" style="opacity: 0.22"></div>
-<div class="orn orn-r" style="opacity: 0.22"></div>
+<div class="orn orn-l" style="opacity: 0.3"></div>
+<div class="orn orn-r" style="opacity: 0.3"></div>
 <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 80px">
 <div style="flex: 0 1 380px; min-width: 0; display: flex; justify-content: center">
 <div style="position: relative; width: 100%; max-width: 340px">

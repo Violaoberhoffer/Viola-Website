@@ -46,9 +46,10 @@ img{max-width:100%}
  .js .rv.in{opacity:1;transform:none}
  .js .rv-soft{opacity:0;transition:opacity 1.6s ease;transition-delay:var(--d,0s)}
  .js .rv-soft.in{opacity:1}
- .orn{animation:orn-drift 16s ease-in-out infinite alternate;will-change:transform}
- .orn-r{animation-delay:-8s}
- @keyframes orn-drift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-18px,0) scale(1.05)}}
+ .orn{animation:orn-drift 11s ease-in-out infinite alternate;will-change:transform}
+ .orn-r{animation-name:orn-drift-r;animation-delay:-5s}
+ @keyframes orn-drift{0%{transform:translate3d(-10px,12px,0) scale(1) rotate(-1deg)}50%{transform:translate3d(14px,-22px,0) scale(1.07) rotate(0.6deg)}100%{transform:translate3d(-4px,-44px,0) scale(1.12) rotate(1.4deg)}}
+ @keyframes orn-drift-r{0%{transform:translate3d(10px,12px,0) scale(1) rotate(1deg)}50%{transform:translate3d(-14px,-22px,0) scale(1.07) rotate(-0.6deg)}100%{transform:translate3d(4px,-44px,0) scale(1.12) rotate(-1.4deg)}}
  .quote-bg{animation:quote-breathe 24s ease-in-out infinite alternate;will-change:transform}
  @keyframes quote-breathe{0%{transform:scale(1)}100%{transform:scale(1.06)}}
 }
@@ -103,8 +104,8 @@ img{max-width:100%}
 </section>
 
 <section id="books" style="position: relative; overflow: hidden; background: #241A33">
-<div class="orn orn-l" style="opacity: 0.22"></div>
-<div class="orn orn-r" style="opacity: 0.22"></div>
+<div class="orn orn-l" style="opacity: 0.3"></div>
+<div class="orn orn-r" style="opacity: 0.3"></div>
 <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 80px">
 <div style="flex: 0 1 380px; min-width: 0; display: flex; justify-content: center">
 <div style="position: relative; width: 100%; max-width: 340px">
@@ -126,9 +127,9 @@ img{max-width:100%}
 <h2 style="margin: 0; display: flex; flex-direction: column; gap: 8px; font-family: 'Cormorant Garamond', Georgia, serif"><span style="font-weight: 400; font-size: 60px; line-height: 1.05; letter-spacing: 0.06em; text-transform: uppercase">Bound Heart</span><span style="font-weight: 400; font-style: italic; font-size: 30px; line-height: 1.2; color: #D8C7DF">Traces of Memory</span></h2>
 <p style="margin: 0; font-size: 15px; font-weight: 600; color: #B9A9D0">Band 1 der Bound-Heart-Trilogie · In Überarbeitung</p>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
-<span style="padding: 6px 14px; border-radius: 999px; border: 1px solid #6E6288; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #E3DAEA">Schicksalsgefährten</span>
-<span style="padding: 6px 14px; border-radius: 999px; border: 1px solid #6E6288; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #E3DAEA">Langsame Annäherung</span>
-<span style="padding: 6px 14px; border-radius: 999px; border: 1px solid #6E6288; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #E3DAEA">Verbotene Liebe</span>
+<span style="padding: 6px 14px; border-radius: 999px; border: 1px solid #6E6288; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #E3DAEA">Fated Mates</span>
+<span style="padding: 6px 14px; border-radius: 999px; border: 1px solid #6E6288; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #E3DAEA">Slow Burn</span>
+<span style="padding: 6px 14px; border-radius: 999px; border: 1px solid #6E6288; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #E3DAEA">Forbidden Love</span>
 <span style="padding: 6px 14px; border-radius: 999px; border: 1px solid #6E6288; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #E3DAEA">Romantisch · Düster · Emotional</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.75; color: #E3DAEA; max-width: 580px">
