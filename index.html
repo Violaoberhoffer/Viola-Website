@@ -87,6 +87,10 @@ html,body{overflow-x:clip}
 .pi-plus{transition:transform .3s ease}
 .pricing-info summary:hover{background:#221C33}
 @media (max-width:700px){.pricing-info summary{padding:20px 20px!important}.pricing-info>div{padding:4px 20px 28px!important}}
+#audition form>div>label{flex:1 1 200px;min-width:0}
+#audition input:focus,#audition textarea:focus{outline:2px solid #C9B8DE;outline-offset:1px}
+#audition button:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,184,222,.25)}
+@media (max-width:700px){#audition{padding:36px 22px!important}}
 </style>
 </head>
 <body>
@@ -231,6 +235,7 @@ html,body{overflow-x:clip}
 <li style="display: flex; gap: 12px; align-items: flex-start"><svg width="12" height="12" viewBox="0 0 20 20" aria-hidden="true" style="flex: none; margin-top: 6px"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z" fill="#C9B8DE"></path></svg><span>Files ready for Audible and all major platforms</span></li>
 <li style="display: flex; gap: 12px; align-items: flex-start"><svg width="12" height="12" viewBox="0 0 20 20" aria-hidden="true" style="flex: none; margin-top: 6px"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z" fill="#C9B8DE"></path></svg><span>One round of corrections included</span></li>
 </ul>
+<a href="#audition" style="align-self: flex-start; margin-top: 6px; color: #F3D9A6; font-weight: 600; font-size: 15px; text-decoration: none; border-bottom: 1px solid rgba(243,217,166,.5); padding-bottom: 2px">Not sure yet? Request a free audition →</a>
 </div>
 <div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 28px; border: 1px solid #4A3C63; border-radius: 160px 160px 12px 12px; box-sizing: border-box; text-align: left">
 <p style="margin: 18px 0 0; align-self: center; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #B9A9D0">Pricing</p>
@@ -244,9 +249,11 @@ html,body{overflow-x:clip}
 <p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 34px; line-height: 1.1; color: #EFE6D6"><span style="font-size: 18px; font-style: italic">from</span> €400</p>
 <p style="margin: 0; font-size: 13px; color: #B9A9D0">per finished hour · Audible-ready</p>
 </div>
+<p style="margin: 6px 0 0; align-self: stretch; text-align: center; padding: 10px 14px; border-radius: 10px; background: #2B2140; font-size: 14px; line-height: 1.5; color: #F3D9A6"><span style="font-weight: 600">Introductory offer:</span> 10% off my first three audiobooks</p>
 <p style="margin: 4px 0 6px; align-self: center; text-align: center; font-size: 13px; line-height: 1.5; color: #9C8FB3">Dubbing, commercials &amp; more on request.</p>
 <a href="mailto:hello@violacoberhoffer.com?subject=Audiobook%20inquiry&body=Hi%20Viola%2C%0D%0A%0D%0ABook%20title%3A%20%0D%0AGenre%3A%20%0D%0AWord%20count%3A%20%0D%0ALanguage%3A%20%0D%0ADesired%20deadline%3A%20%0D%0AAnything%20else%20I%20should%20know%3A%20%0D%0A%0D%0A" style="align-self: stretch; justify-content: center; text-align: center; display: inline-flex; align-items: center; min-height: 48px; padding: 0 28px; border-radius: 999px; background: #EFE6D6; color: #241A33; text-decoration: none; font-weight: 600; font-size: 15px">Request a quote</a>
 <a href="mailto:hello@violacoberhoffer.com?subject=Voice%20booking%20inquiry&body=Hi%20Viola%2C%0D%0A%0D%0AType%20of%20project%20(dubbing%2C%20commercial%2C%20audio%20drama%2C%20...)%3A%20%0D%0ALanguage%3A%20%0D%0ALength%20of%20the%20script%3A%20%0D%0AUsage%20(where%20will%20it%20be%20published%3F)%3A%20%0D%0ADesired%20deadline%3A%20%0D%0A%0D%0A" style="align-self: stretch; justify-content: center; text-align: center; display: inline-flex; align-items: center; min-height: 48px; padding: 0 28px; border-radius: 999px; border: 1px solid #8A7CA6; color: #EFE6D6; text-decoration: none; font-weight: 600; font-size: 15px">Book my voice for other projects</a>
+<p style="margin: 0; align-self: center; text-align: center; font-size: 13px; line-height: 1.5; color: #9C8FB3">Need a custom demo for your project? Just ask – it’s free.</p>
 </div>
 </div>
 <details class="pricing-info" style="margin-top: -20px; background: #1A1628; border: 1px solid #3A3150; border-radius: 16px; overflow: hidden">
@@ -287,6 +294,32 @@ html,body{overflow-x:clip}
 <a href="mailto:hello@violacoberhoffer.com?subject=Audiobook%20inquiry&amp;body=Hi%20Viola%2C%0D%0A%0D%0ABook%20title%3A%20%0D%0AGenre%3A%20%0D%0AWord%20count%3A%20%0D%0ALanguage%3A%20%0D%0ANarration%20only%20or%20complete%20package%3A%20%0D%0ADesired%20deadline%3A%20%0D%0AAnything%20else%20I%20should%20know%3A%20%0D%0A%0D%0A" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 28px; border-radius: 999px; background: #EFE6D6; color: #241A33; text-decoration: none; font-weight: 600; font-size: 15px">Request a quote</a>
 </div>
 </details>
+<div id="audition" style="background: linear-gradient(160deg, #2B2140 0%, #1E1A30 60%); border: 1px solid #4A3C63; border-radius: 16px; padding: 44px 40px; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #F3D9A6">Not sure yet?</p>
+<h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1">Request your free audition</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #D8CFC0">Send me two of your favorite pages from your book, and I’ll record them for you – so you can hear your characters in my voice before you decide.</p>
+<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-style: italic; color: #EFE6D6">Free and with no obligation.</p>
+</div>
+<form name="audition" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<input type="hidden" name="form-name" value="audition">
+<p style="display: none"><label>Don’t fill this out: <input name="bot-field"></label></p>
+<div style="display: flex; flex-wrap: wrap; gap: 18px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #EFE6D6"><span>Your name *</span><input style="font: inherit; font-weight: 400; font-size: 16px; color: #EFE6D6; background: #141221; border: 1px solid #4A3C63; border-radius: 10px; padding: 12px 14px; box-sizing: border-box; width: 100%" type="text" name="name" autocomplete="name" required></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #EFE6D6"><span>Email *</span><input style="font: inherit; font-weight: 400; font-size: 16px; color: #EFE6D6; background: #141221; border: 1px solid #4A3C63; border-radius: 10px; padding: 12px 14px; box-sizing: border-box; width: 100%" type="email" name="email" autocomplete="email" required></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 18px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #EFE6D6"><span>Book title *</span><input style="font: inherit; font-weight: 400; font-size: 16px; color: #EFE6D6; background: #141221; border: 1px solid #4A3C63; border-radius: 10px; padding: 12px 14px; box-sizing: border-box; width: 100%" type="text" name="book-title" required></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #EFE6D6"><span>Genre</span><input style="font: inherit; font-weight: 400; font-size: 16px; color: #EFE6D6; background: #141221; border: 1px solid #4A3C63; border-radius: 10px; padding: 12px 14px; box-sizing: border-box; width: 100%" type="text" name="genre" placeholder="e.g. Romantasy"></label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #EFE6D6"><span>Word count (approx.)</span><input style="font: inherit; font-weight: 400; font-size: 16px; color: #EFE6D6; background: #141221; border: 1px solid #4A3C63; border-radius: 10px; padding: 12px 14px; box-sizing: border-box; width: 100%" type="text" name="word-count" inputmode="numeric" placeholder="e.g. 85,000"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #EFE6D6"><span>Your two favorite pages *</span><span style="font-weight: 400; font-size: 13px; color: #9C8FB3">Paste the text here – or upload a file below.</span><textarea style="font: inherit; font-weight: 400; font-size: 16px; color: #EFE6D6; background: #141221; border: 1px solid #4A3C63; border-radius: 10px; padding: 12px 14px; box-sizing: border-box; width: 100%" name="pages" rows="6"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #EFE6D6"><span>Or upload them</span><span style="font-weight: 400; font-size: 13px; color: #9C8FB3">PDF, Word or text file, max. 8 MB</span><input style="font: inherit; font-weight: 400; font-size: 16px; color: #EFE6D6; background: #141221; border: 1px solid #4A3C63; border-radius: 10px; padding: 12px 14px; box-sizing: border-box; width: 100%" type="file" name="pages-file" accept=".pdf,.doc,.docx,.txt,.rtf,.odt"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; color: #EFE6D6"><span>Anything I should know?</span><span style="font-weight: 400; font-size: 13px; color: #9C8FB3">Characters, how names are pronounced, special wishes …</span><textarea style="font: inherit; font-weight: 400; font-size: 16px; color: #EFE6D6; background: #141221; border: 1px solid #4A3C63; border-radius: 10px; padding: 12px 14px; box-sizing: border-box; width: 100%" name="notes" rows="4"></textarea></label>
+<label style="display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: #D8CFC0"><input type="checkbox" name="privacy-consent" value="yes" required style="margin-top: 3px; width: 18px; height: 18px; flex: none; accent-color: #C9B8DE"><span>I agree that my details are used to prepare my audition and answer my request. More in the <a href="privacy.html">privacy policy</a>. *</span></label>
+<button type="submit" style="align-self: flex-start; cursor: pointer; border: 0; font: inherit; font-weight: 600; font-size: 15px; min-height: 52px; padding: 0 32px; border-radius: 999px; background: #EFE6D6; color: #241A33">Send my request</button>
+</form>
+</div>
 <div style="display: flex; flex-direction: column; gap: 28px; margin-top: 40px">
 <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
 <svg width="160" height="20" viewBox="0 0 160 20" aria-hidden="true"><line x1="0" y1="10" x2="66" y2="10" stroke="#8A7CA6" stroke-width="1"></line><path d="M80,0 L82.4,7.6 L90,10 L82.4,12.4 L80,20 L77.6,12.4 L70,10 L77.6,7.6 Z" fill="#C9B8DE"></path><line x1="94" y1="10" x2="160" y2="10" stroke="#8A7CA6" stroke-width="1"></line></svg>
