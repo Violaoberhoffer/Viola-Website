@@ -147,6 +147,19 @@ html,body{overflow-x:clip}
 #intro.gone{display:none!important}
 .intro-on .hdr *, .intro-on .hdr{animation-play-state:paused!important}
 @media (max-width:700px){#intro .front::before{inset:16px}#intro .imono{width:72px;height:115px}}
+.quote-mist,.quote-dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.quote-top figure{z-index:2}
+.quote-mist{background:radial-gradient(40% 55% at 30% 45%,rgba(160,120,200,.22),transparent 70%),radial-gradient(35% 45% at 72% 60%,rgba(243,217,166,.10),transparent 70%);opacity:.9}
+@media (prefers-reduced-motion: no-preference){
+ .quote-top .quote-bg{animation:qt-drift 34s ease-in-out infinite alternate}
+ @keyframes qt-drift{0%{transform:scale(1) translate3d(0,0,0)}50%{transform:scale(1.08) translate3d(-1.2%,0.8%,0)}100%{transform:scale(1.13) translate3d(1%,-1%,0)}}
+ .quote-mist{animation:qt-mist 26s ease-in-out infinite alternate}
+ @keyframes qt-mist{0%{transform:translate3d(-6%,2%,0) scale(1)}100%{transform:translate3d(6%,-3%,0) scale(1.15)}}
+ .js .quote-top .qw{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(10px);transition:opacity 1.6s ease,filter 1.9s ease,transform 1.9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--wd,0s)}
+ .js .quote-top.go .qw{opacity:1;filter:blur(0);transform:none}
+ .quote-top.lit blockquote>span:last-child{animation:qt-glow 5s ease-in-out infinite}
+ @keyframes qt-glow{0%,100%{text-shadow:0 2px 24px rgba(14,12,24,.9)}50%{text-shadow:0 2px 24px rgba(14,12,24,.9),0 0 22px rgba(243,217,166,.45)}}
+}
 </style>
 </head>
 <body>
@@ -186,6 +199,8 @@ html,body{overflow-x:clip}
 
 <section class="quote-sec quote-top" aria-label="Zitat aus Bound Heart" style="position: relative; overflow: hidden; background: #0E0C18; min-height: 560px; display: flex; align-items: center; justify-content: center">
 <div class="quote-bg" style="opacity: 0.4"></div>
+<div class="quote-mist" aria-hidden="true"></div>
+<canvas class="quote-dust" aria-hidden="true"></canvas>
 <figure style="position: relative; max-width: 760px; margin: 0 auto; padding: 96px 48px; display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center">
 <svg width="160" height="20" viewBox="0 0 160 20" aria-hidden="true"><line x1="0" y1="10" x2="66" y2="10" stroke="#8A7CA6" stroke-width="1"></line><path d="M80,0 L82.4,7.6 L90,10 L82.4,12.4 L80,20 L77.6,12.4 L70,10 L77.6,7.6 Z" fill="#C9B8DE"></path><line x1="94" y1="10" x2="160" y2="10" stroke="#8A7CA6" stroke-width="1"></line></svg>
 <blockquote style="margin: 0; display: flex; flex-direction: column; gap: 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 54px; font-weight: 500; line-height: 1.12; color: #FBF6EC; text-shadow: 0 2px 24px rgba(14, 12, 24, 0.9)"><span style="font-style: italic">Ein Herz vergisst nie,</span><span style="font-size: 60px; font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase">wen es einmal geliebt hat.</span></blockquote>
@@ -198,7 +213,7 @@ html,body{overflow-x:clip}
 <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
 <p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #B9A9D0">Autorin · Sprecherin</p>
 <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; font-weight: 400; font-style: italic; line-height: 1.12; color: #EFE6D6; max-width: 600px">„Die Feder in meiner Hand ist die Brücke zwischen meiner Seele und dem Papier.“</h1>
-<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #D8CFC0; max-width: 560px">Ich schreibe Geschichten über Helden, die die Dunkelheit der Welt vertreiben, über Liebe, die leidenschaftlich und herzzerreißend ist – und doch unausweichlich –, und über Fantasie, die uns vergessen lässt, wo wir sind, und träumen lässt, wo wir gern wären.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #D8CFC0; max-width: 560px">Ich schreibe Geschichten über Helden, die die Dunkelheit aus der Welt vertreiben, über Liebe, die leidenschaftlich und herzzerreißend ist – und doch unausweichlich –, und über Fantasie, die uns vergessen lässt, wo wir sind, und träumen lässt, wo wir gern wären.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
 <a href="#books" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 28px; border-radius: 999px; background: #7A3B6E; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px">Zu den Büchern</a>
 <a href="#voice" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 28px; border-radius: 999px; border: 1px solid #6E6288; color: #EFE6D6; text-decoration: none; font-weight: 600; font-size: 15px">Meine Stimme hören</a>
@@ -243,7 +258,7 @@ html,body{overflow-x:clip}
 <div style="display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.75; color: #E3DAEA; max-width: 580px">
 <p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 34px; font-style: italic; line-height: 1.22; color: #EFE6D6">Ein Herz vergisst nie, wen es einmal geliebt hat.</p>
 <p style="margin: 0">Luna war acht Jahre alt, als sie vor der Tür eines kinderlosen Ehepaars gefunden wurde – ohne Erinnerungen und mit nichts als ihrem Namen und einer Kette, die sie seitdem nie abgelegt hat. Ihr ganzes Leben lang hat sie sich gefragt, wer sie wirklich ist.</p>
-<p style="margin: 0">In Rosewood, Virginia, wünscht sie sich nichts mehr als einen Neuanfang. Dann trifft sie ihn. Adam. Er ist verschlossen, kalt, undurchschaubar – und der Einzige, bei dem sie je das Gefühl hatte, dazuzugehören. Was keiner von beiden weiß: Sie sind sich schon einmal begegnet. Sie haben sich schon einmal geliebt. Und jemand hat dafür gesorgt, dass sie es vergessen.</p>
+<p style="margin: 0">In Rosewood, Virginia, wünscht sie sich nichts mehr als einen Neuanfang. Dann trifft sie ihn. Adam.<br>Er ist verschlossen, kalt, undurchschaubar – und der Einzige, bei dem sie je das Gefühl hatte, dazuzugehören. Was keiner von beiden weiß: Sie sind sich schon einmal begegnet. Sie haben sich schon einmal geliebt. Und jemand hat dafür gesorgt, dass sie es vergessen.</p>
 <p style="margin: 0">Doch während ihre Herzen zueinander zurückfinden, kehrt auch die Dunkelheit zurück, die sie einst auseinandergerissen hat.</p>
 </div>
 <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #B9A9D0">Als Nächstes in der Trilogie: <span style="font-style: italic">Tainted Soul</span> · <span style="font-style: italic">The Touch of Light and Darkness</span></p>
@@ -544,7 +559,7 @@ html,body{overflow-x:clip}
 <div style="position: absolute; top: -44px; left: 50%; margin-left: -44px; width: 88px; height: 88px; border-radius: 999px; background: #6B2A4F; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), inset 0 0 0 5px #5A2142; display: flex; align-items: center; justify-content: center"><img loading="lazy" decoding="async" src="../images/monogram.svg" alt="" style="display: block; width: 30px; height: 48px"></div>
 <p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #7A3B6E">Newsletter</p>
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-style: italic; font-size: 60px; line-height: 1">Briefe von Viola</h2>
-<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #4A4458; max-width: 460px">Einmal im Monat schreibe ich dir einen Brief – über das Schreiben, das Träumen und die Geschichten, die mich nachts wach halten. Mit einer kleinen Aufgabe für deinen eigenen Mut und einer Version, die du dir mit meiner Stimme anhören kannst.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #4A4458; max-width: 460px">Manches teilt man lieber in einem Brief. Einmal im Monat – über Geschichten, Träume und alles dazwischen.</p>
 <form style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; width: 100%; margin-top: 8px">
 <label for="letters-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">E-Mail-Adresse</label>
 <input id="letters-email" type="email" placeholder="Deine E-Mail-Adresse" style="flex: 1 1 240px; min-width: 0; max-width: 340px; min-height: 52px; padding: 0 22px; border-radius: 999px; border: 1px solid #B9A3B5; background: #FBF6EC; color: #2A1F33; font-family: inherit; font-size: 16px; box-sizing: border-box">
@@ -695,6 +710,31 @@ html,body{overflow-x:clip}
     });
   });
   function alertBox(f){var m=f.querySelector('.fx-err');if(!m){m=document.createElement('p');m.className='fx-err';m.setAttribute('role','alert');m.style.cssText='margin:0;font-size:14px;color:#F3B9A6';f.appendChild(m)}m.innerHTML='Sorry, something went wrong. Please try again or write to <a href="mailto:hello@violacoberhoffer.com">hello@violacoberhoffer.com</a>.'}
+})();
+</script>
+<script>
+(function(){
+  var sec=document.querySelector('.quote-top'); if(!sec)return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var spans=sec.querySelectorAll('blockquote>span'), k=0;
+  Array.prototype.forEach.call(spans,function(sp){
+    sp.classList.remove('rv'); sp.classList.add('in');
+    if(reduce)return;
+    var words=sp.textContent.split(' '); sp.textContent='';
+    words.forEach(function(w,i){var e=document.createElement('span');e.className='qw';e.textContent=w;e.style.setProperty('--wd',(0.35+k*0.28)+'s');k++;sp.appendChild(e);if(i<words.length-1)sp.appendChild(document.createTextNode(' '));});
+  });
+  if(reduce)return;
+  var total=(0.35+k*0.28+1.8)*1000;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){sec.classList.add('go');setTimeout(function(){sec.classList.add('lit')},total);io.disconnect();}})},{threshold:0.3});
+  io.observe(sec);
+  // goldener Staub
+  var c=sec.querySelector('.quote-dust'),x=c.getContext('2d'),W,H,dpr,P=[],on=false,raf;
+  function size(){dpr=Math.min(window.devicePixelRatio||1,2);W=sec.clientWidth;H=sec.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);}
+  function mk(y){return{x:Math.random()*W,y:y==null?Math.random()*H:y,r:Math.random()*1.6+0.4,v:Math.random()*0.25+0.08,s:Math.random()*Math.PI*2,a:Math.random()*0.5+0.25}}
+  size(); for(var i=0;i<Math.round(W/22);i++)P.push(mk());
+  window.addEventListener('resize',size);
+  function draw(t){x.clearRect(0,0,W,H);P.forEach(function(p,i){p.y-=p.v;p.x+=Math.sin(t/2400+p.s)*0.18;if(p.y<-6)P[i]=mk(H+6);var tw=0.6+0.4*Math.sin(t/900+p.s);x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fillStyle='rgba(243,217,166,'+(p.a*tw).toFixed(3)+')';x.shadowColor='rgba(243,217,166,.8)';x.shadowBlur=6;x.fill();});if(on)raf=requestAnimationFrame(draw);}
+  new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!on){on=true;raf=requestAnimationFrame(draw);}else if(!e.isIntersecting){on=false;cancelAnimationFrame(raf);}})}).observe(sec);
 })();
 </script>
 </body>
