@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Viola C. Oberhoffer – Author and Voice Actress</title>
 <meta name="description" content="Viola C. Oberhoffer – romantasy author and voice actress.">
+<link rel="alternate" hreflang="en" href="https://violacoberhoffer.com/">
+<link rel="alternate" hreflang="de" href="https://violacoberhoffer.com/de/">
+<link rel="alternate" hreflang="x-default" href="https://violacoberhoffer.com/">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <style>
 @font-face{font-family:'Cormorant Garamond';src:url(fonts/cormorant-garamond.woff) format('woff');font-weight:300 700;font-style:normal;font-display:swap}
@@ -81,6 +84,7 @@ html,body{overflow-x:clip}
 .quote-top .quote-bg{background-size:100% 100%}
 .quote-top figure{padding:64px 48px!important}
 @media (max-width:700px){.quote-top{height:auto}.quote-top figure{padding:88px 28px!important}}
+@media (max-width:700px){.lang-sw{top:8px!important;right:12px!important}}
 @media (max-width:700px){#audiobooks{padding:40px 22px!important;gap:32px!important}}
 .pricing-info summary::-webkit-details-marker{display:none}
 .pricing-info[open] .pi-plus{transform:rotate(45deg)}
@@ -161,6 +165,10 @@ html,body{overflow-x:clip}
 
 <header class="hdr" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 40px 32px 0; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
 <canvas class="sky" aria-hidden="true"></canvas>
+<div role="group" aria-label="Language" class="lang-sw" style="position: absolute; top: 24px; right: 32px; z-index: 2; display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.16em">
+<a href="#top" aria-current="true" style="display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; text-decoration: none; color: #EFE6D6; border-bottom: 1px solid #C9B8DE">EN</a>
+<a href="de/" lang="de" hreflang="de" style="display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; text-decoration: none; color: #9C8FB3">DE</a>
+</div>
 <a href="#top" aria-label="Viola C. Oberhoffer, home" style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 20px; text-decoration: none; color: #EFE6D6">
 <img class="mono" src="images/monogram.svg" alt="" style="display: block; width: 100px; height: 160px">
 <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(30px, 5.2vw, 68px); font-weight: 300; line-height: 1; letter-spacing: 0.14em; text-transform: uppercase; padding-left: 0.14em" class="shimmer name">Viola C. Oberhoffer</span>
