@@ -672,12 +672,12 @@ html,body{overflow-x:clip}
   ['audition','custom-demo'].forEach(function(name){
     var f=document.querySelector('form[name="'+name+'"]');if(!f||!window.fetch||!window.FormData)return;
     f.addEventListener('submit',function(e){
-      e.preventDefault();var btn=f.querySelector('button[type=submit]'),label=btn.textContent;btn.disabled=true;btn.textContent='Sending …';
+      e.preventDefault();var btn=f.querySelector('button[type=submit]'),label=btn.textContent;btn.disabled=true;btn.textContent='Wird gesendet …';
       fetch('/',{method:'POST',body:new FormData(f)}).then(function(r){if(!r.ok)throw new Error(r.status);f.reset();openFx('fx-'+name)})
       .catch(function(){alertBox(f)}).then(function(){btn.disabled=false;btn.textContent=label});
     });
   });
-  function alertBox(f){var m=f.querySelector('.fx-err');if(!m){m=document.createElement('p');m.className='fx-err';m.setAttribute('role','alert');m.style.cssText='margin:0;font-size:14px;color:#F3B9A6';f.appendChild(m)}m.innerHTML='Sorry, something went wrong. Please try again or write to <a href="mailto:hello@violacoberhoffer.com">hello@violacoberhoffer.com</a>.'}
+  function alertBox(f){var m=f.querySelector('.fx-err');if(!m){m=document.createElement('p');m.className='fx-err';m.setAttribute('role','alert');m.style.cssText='margin:0;font-size:14px;color:#F3B9A6';f.appendChild(m)}m.innerHTML='Das hat leider nicht geklappt. Bitte versuch es noch einmal oder schreib mir an <a href="mailto:hello@violacoberhoffer.com">hello@violacoberhoffer.com</a>.'}
 })();
 </script>
 </body>
